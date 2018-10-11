@@ -13,11 +13,13 @@ from . import medit_io
 from . import msh_io
 from . import off_io
 from . import permas_io
+from . import plot3d_io
 from . import stl_io
 from . import svg_io
 from . import vtk_io
 from . import vtu_io
 from . import xdmf_io
+
 
 input_filetypes = [
     "abaqus",
@@ -31,6 +33,7 @@ input_filetypes = [
     "medit",
     "moab",
     "permas",
+    "plot3d",
     "off",
     "stl-ascii",
     "stl-binary",
@@ -80,6 +83,8 @@ _extension_to_filetype = {
     ".xml": "dolfin-xml",
     ".post": "permas",
     ".post.gz": "permas",
+    ".p2dfmt" : "plot3d",
+    ".p2dfmt.gz" : "plot3d",
     ".dato": "permas",
     ".dato.gz": "permas",
     ".h5m": "moab",
@@ -148,6 +153,8 @@ def read(filename, file_format=None):
         "permas": permas_io,
         "moab": h5m_io,
         "off": off_io,
+        #
+        "plot3d" :plot3d_io,
         #
         "stl": stl_io,
         "stl-ascii": stl_io,
